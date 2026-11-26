@@ -1,4 +1,5 @@
 name: Deploy Frontend to GitHub Pages
+# Workflow يبني فولدر front_end فقط ويرفع dist/ على GitHub Pages
 
 on:
   push:
