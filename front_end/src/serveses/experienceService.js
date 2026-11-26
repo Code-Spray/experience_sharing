@@ -1,4 +1,5 @@
 import { apiRequest } from './apiClient.js';
+import { localExperienceFallback } from './fallbackData.js';
 
 function buildQueryString(filters = {}) {
   const params = new URLSearchParams();
@@ -15,33 +16,56 @@ function buildQueryString(filters = {}) {
   return query ? `?${query}` : '';
 }
 
+async function withFallback(apiCall, fallbackCall) {
+  try {
+    return await apiCall();
+  } catch {
+    return fallbackCall();
+  }
+}
+
 export async function fetchExperiences(filters = {}) {
   const query = buildQueryString(filters);
-  const result = await apiRequest(`/experiences${query}`);
-  return result.data;
+  return withFallback(
+    async () => (await apiRequest(`/experiences${query}`)).data,
+    () => localExperienceFallback.list(filters),
+  );
 }
 
 export async function fetchExperienceStats() {
-  const result = await apiRequest('/experiences/stats');
-  return result.data;
+  return withFallback(
+    async () => (await apiRequest('/experiences/stats')).data,
+    () => localExperienceFallback.stats(),
+  );
 }
 
 export async function fetchExperienceById(id) {
-  const result = await apiRequest(`/experiences/${id}`);
-  return result.data;
+  return withFallback(
+    async () => (await apiRequest(`/experiences/${id}`)).data,
+    () => {
+      const item = localExperienceFallback.getById(id);
+      if (!item) throw new Error('التجربة غير موجودة');
+      return item;
+    },
+  );
 }
 
 export async function createExperience(payload) {
-  const result = await apiRequest('/experiences', {
-    method: 'POST',
-    body: JSON.stringify(payload),
-  });
-  return result.data;
+  return withFallback(
+    async () =>
+      (
+        await apiRequest('/experiences', {
+          method: 'POST',
+          body: JSON.stringify(payload),
+        })
+      ).data,
+    () => localExperienceFallback.create(payload),
+  );
 }
 
 export async function markExperienceHelpful(id) {
-  const result = await apiRequest(`/experiences/${id}/helpful`, {
-    method: 'PATCH',
-  });
-  return result.data;
+  return withFallback(
+    async () => (await apiRequest(`/experiences/${id}/helpful`, { method: 'PATCH' })).data,
+    () => localExperienceFallback.markHelpful(id),
+  );
 }

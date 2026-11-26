@@ -1,0 +1,143 @@
+const STORAGE_KEY = 'khibra_experiences_v1';
+
+const SEED_EXPERIENCES = [
+  {
+    id: 'exp-101',
+    title: 'ازاي جبت أول إنترنشيب في تطوير الويب بدون خبرة سابقة',
+    authorName: 'أحمد محمود',
+    authorRole: 'Frontend Developer',
+    category: 'internship',
+    summary: 'رحلتي من الصفر لحد ما اتقبلت في أول تدريب صيفي في شركة برمجيات، وإيه الكورسات والمشاريع اللي فرقت معايا.',
+    story: 'بدأت أتعلم HTML و CSS و JavaScript من الصفر لمدة 4 شهور. في الأول كنت بتوه بين الكورسات الكتير، بس لما ركزت على التطبيق العملي وعملت 3 مشاريع حقيقية ورفعتهم على GitHub، بدأت أقدم على لينكدإن. سر القبول مكنش الشهادات، كان إنك تورّيهم كود نضيف ومشروع شغال تقدر تشرحه في الإنترفيو.',
+    howIGotIt: 'قدمت على 25 شركة على LinkedIn و Wuzzuf، وكنت ببعت رسالة مختصرة للـ HR أو الـ Tech Lead فيها لينك البورتفوليو و GitHub. جالي 4 إنترفيوهات واتقبلت في واحدة.',
+    coursesTaken: ['Elzero Web School - HTML & CSS & JS', 'React - The Complete Guide', 'CS50x Introduction to Computer Science'],
+    resources: [
+      { title: 'Elzero Web School (YouTube)', url: 'https://www.youtube.com/@ElzeroWebSchool', type: 'youtube' },
+      { title: 'MDN Web Docs', url: 'https://developer.mozilla.org/', type: 'website' },
+      { title: 'Frontend Mentor', url: 'https://www.frontendmentor.io/', type: 'website' },
+    ],
+    tags: ['React', 'Frontend', 'إنترنشيب', 'GitHub'],
+    helpfulCount: 24,
+    createdAt: '2026-11-15T10:30:00.000Z',
+  },
+  {
+    id: 'exp-102',
+    title: 'تجربتي في التحضير والحصول على أول شغل Backend بـ Node.js',
+    authorName: 'سارة إبراهيم',
+    authorRole: 'Backend Engineer',
+    category: 'job',
+    summary: 'إزاي ذاكرت Node.js و Express وقواعد البيانات، وإزاي اتغلبت على رهبة أول إنترفيو تكنيكال.',
+    story: 'كنت فاكرة إني لازم أخلص 10 كورسات عشان أقدم على شغل، لكن اكتشفت إن مشروعين Backend متكاملين بـ Authentication و Error Handling و Clean Code كفاية جداً كبداية. ركزت على فهم الـ HTTP، الـ REST APIs، وكتبت Documentation لكل API.',
+    howIGotIt: 'شاركت مشاريعي في بوستات على LinkedIn بشرح تقني بسيط، وواحد من الـ Senior Engineers شاف البوست ورشحني لتيم عندهم.',
+    coursesTaken: ['Node.js, Express, MongoDB & More', 'SQL & Database Design Fundamentals', 'System Design Basics'],
+    resources: [
+      { title: 'Traversy Media (YouTube)', url: 'https://www.youtube.com/@TraversyMedia', type: 'youtube' },
+      { title: 'Roadmap.sh - Backend', url: 'https://roadmap.sh/backend', type: 'website' },
+    ],
+    tags: ['Node.js', 'Express', 'Backend', 'أول شغل'],
+    helpfulCount: 31,
+    createdAt: '2026-11-18T14:20:00.000Z',
+  },
+  {
+    id: 'exp-103',
+    title: 'أفضل قنوات اليوتيوب ومواقع جوجل اللي ساعدتني أتعلم UI/UX',
+    authorName: 'نور الدين حسن',
+    authorRole: 'Product Designer',
+    category: 'resources',
+    summary: 'تجميعة مجانية تماماً لأفضل المصادر اللي اتعلمت منها تصميم واجهات المستخدم وبناء Case Studies.',
+    story: 'لو بتدور على مصادر مجانية وموثوقة، جوجل نفسها منزلة مسارات ممتازة على Coursera، وكمان فيه قنوات يوتيوب بتشرح التصميم بشكل عملي بعيد عن الكلام النظري. أهم نصيحة: اختار مصدر واحد وامشي معاه للآخر وطبق على كل درس.',
+    howIGotIt: 'عملت 2 Case Studies على Behance وبدأت أشتغل Freelance على مشاريع صغيرة قبل ما أدخل شركة.',
+    coursesTaken: ['Google UX Design Professional Certificate', 'Figma UI Design Essentials'],
+    resources: [
+      { title: 'Google UX Design (Coursera)', url: 'https://www.coursera.org/professional-certificates/google-ux-design', type: 'course' },
+      { title: 'Flux Academy (YouTube)', url: 'https://www.youtube.com/@FluxAcademy', type: 'youtube' },
+      { title: 'Laws of UX', url: 'https://lawsofux.com/', type: 'website' },
+    ],
+    tags: ['UI/UX', 'Figma', 'يوتيوب', 'كورسات مجانية'],
+    helpfulCount: 19,
+    createdAt: '2026-11-20T09:15:00.000Z',
+  },
+  {
+    id: 'exp-104',
+    title: 'خطة 6 شهور في كورسات الـ Data Analysis والـ Python',
+    authorName: 'مريم خالد',
+    authorRole: 'Data Analyst',
+    category: 'courses',
+    summary: 'الكورسات اللي أخدتها بالترتيب عشان أدخل مجال تحليل البيانات وأعمل أول Dashboard احترافي.',
+    story: 'بدأت بالـ Excel المتقدم وبعدها SQL لأنهم الأساس في أي شركة. بعد كده اتعلمت Python (Pandas & Matplotlib) و Power BI. كل كورس كنت بخلصه كنت بطبق عليه بـ Dataset حقيقية من Kaggle.',
+    howIGotIt: 'اتقبلت في تدريب مدفوع في شركة تجارة إلكترونية بعد ما عرضت عليهم تحليل مبيعات لمتجر افتراضي.',
+    coursesTaken: ['Google Data Analytics Certificate', 'Alex The Analyst Bootcamp (YouTube)', 'SQL for Data Science'],
+    resources: [
+      { title: 'Alex The Analyst (YouTube)', url: 'https://www.youtube.com/@AlexTheAnalyst', type: 'youtube' },
+      { title: 'Kaggle Datasets', url: 'https://www.kaggle.com/datasets', type: 'website' },
+    ],
+    tags: ['Data Analysis', 'Python', 'SQL', 'Kaggle'],
+    helpfulCount: 15,
+    createdAt: '2026-11-22T18:00:00.000Z',
+  },
+];
+
+function readLocalExperiences() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch {
+    // ignore storage errors
+  }
+  return [...SEED_EXPERIENCES];
+}
+
+function writeLocalExperiences(items) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  } catch {
+    // ignore storage errors
+  }
+}
+
+export const localExperienceFallback = {
+  list({ category, search, author } = {}) {
+    const query = (search || '').trim().toLowerCase();
+    const authorQ = (author || '').trim().toLowerCase();
+    return readLocalExperiences()
+      .filter((item) => (!category || category === 'all' ? true : item.category === category))
+      .filter((item) => (!authorQ ? true : item.authorName.toLowerCase().includes(authorQ)))
+      .filter((item) => {
+        if (!query) return true;
+        return [item.title, item.summary, item.story, item.authorName, ...(item.tags || [])]
+          .some((f) => String(f || '').toLowerCase().includes(query));
+      });
+  },
+  stats() {
+    const all = readLocalExperiences();
+    return {
+      totalExperiences: all.length,
+      totalHelpful: all.reduce((sum, item) => sum + (item.helpfulCount || 0), 0),
+    };
+  },
+  getById(id) {
+    return readLocalExperiences().find((item) => item.id === id) || null;
+  },
+  create(payload) {
+    const all = readLocalExperiences();
+    const story = String(payload.story || '').trim();
+    const created = {
+      ...payload,
+      id: `exp-${Date.now().toString(36)}`,
+      authorRole: payload.authorRole?.trim() || 'عضو في المجتمع',
+      summary: payload.summary?.trim() || `${story.slice(0, 140)}...`,
+      helpfulCount: 0,
+      createdAt: new Date().toISOString(),
+    };
+    writeLocalExperiences([created, ...all]);
+    return created;
+  },
+  markHelpful(id) {
+    const all = readLocalExperiences();
+    const updated = all.map((item) =>
+      item.id === id ? { ...item, helpfulCount: (item.helpfulCount || 0) + 1 } : item,
+    );
+    writeLocalExperiences(updated);
+    return updated.find((item) => item.id === id) || null;
+  },
+};
