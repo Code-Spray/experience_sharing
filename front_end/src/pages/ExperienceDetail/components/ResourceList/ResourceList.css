@@ -1,0 +1,39 @@
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.resource-link-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-page);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.resource-link-card:hover {
+  border-color: var(--brand-primary);
+  background-color: var(--brand-soft);
+}
+
+.resource-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resource-title {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.resource-type {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}

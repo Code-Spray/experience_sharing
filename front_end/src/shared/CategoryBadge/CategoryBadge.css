@@ -1,0 +1,28 @@
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.badge-teal {
+  background-color: #e6f4f1;
+  color: #0f766e;
+}
+
+.badge-amber {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.badge-indigo {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.badge-rose {
+  background-color: #ffe4e6;
+  color: #be123c;
+}

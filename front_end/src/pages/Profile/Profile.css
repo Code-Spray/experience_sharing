@@ -1,0 +1,16 @@
+.profile-filter-bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-author-input {
+  max-width: 340px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface);
+  font-size: 0.95rem;
+  width: 100%;
+}

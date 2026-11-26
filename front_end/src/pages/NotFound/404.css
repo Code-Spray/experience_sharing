@@ -1,0 +1,22 @@
+.not-found-page {
+  text-align: center;
+  padding: 72px 20px;
+}
+
+.not-found-code {
+  margin: 0;
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  line-height: 1;
+}
+
+.not-found-title {
+  margin: 12px 0 8px;
+  font-size: 1.5rem;
+}
+
+.not-found-desc {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+}

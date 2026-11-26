@@ -1,0 +1,85 @@
+.share-page {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.share-header {
+  margin-bottom: 24px;
+}
+
+.share-title {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.share-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.share-form {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.form-input:focus {
+  outline: 2px solid rgba(15, 118, 110, 0.25);
+  border-color: var(--brand-primary);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .form-grid-two {
+    grid-template-columns: 1fr;
+  }
+
+  .share-form {
+    padding: 20px;
+  }
+}

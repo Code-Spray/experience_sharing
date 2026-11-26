@@ -1,0 +1,54 @@
+my-app/
+├── public/                              ← للحاجات الثابتة جداً والمكتبات الخارجية الجاهزة (زي Bootstrap والأيقونات) اللي بتتقدم مباشرة زي ما هي.
+│   ├── css/
+│   │   └── bootstrap.min.css
+│   ├── js/
+│   │   └── bootstrap.bundle.min.js
+│   ├── favicon.svg
+│   └── icons.svg
+├── src/                                 ← الفولدر الرئيسي اللي فيه كل الكود المصدري والملفات الأساسية اللي بيتبني منها الموقع.
+│   ├── assets/                          ← للملفات الثابتة اللي ما بتتغيرش واللي بيستخدمها الكود جوه المشروع زي الصور.
+│   │   └── images/                      ← بيجمع صور الموقع مقسّمة جوه فولدرات على اسم كل صفحة.
+│   │       ├── Home/
+│   │       │   ├── hero.png
+│   │       │   ├── react.svg
+│   │       │   └── vite.svg
+│   │       └── Profile/
+│   │           └── profile.jpg
+│   ├── hooks/                           ← مخصص مستقبلاً للـ Custom Hooks لما تحتاج منطق أو سلوك يتكرر في أكتر من صفحة.
+│   ├── pages/                           ← بيحتوي على كل صفحات المشروع الأساسية (`Home` و `Profile` و `NotFound`).
+│   │   ├── Home/                        ← (مثال لصفحة واحدة) الفولدر الجامع لكل الملفات الخاصة بصفحة `Home` فقط.
+│   │   │   ├── components/              ← بيجمع المكونات الفرعية الخاصة بصفحة `Home` لوحدها ومش بتستخدم برّاها.
+│   │   │   │   └── HeroSection/         ← مكون فرعي جوه صفحة `Home` مع ملف الـ CSS الخاص بيه.
+│   │   │   │       ├── HeroSection.css
+│   │   │   │       └── HeroSection.jsx
+│   │   │   ├── Home.css
+│   │   │   └── Home.jsx
+│   │   ├── NotFound/
+│   │   │   ├── 404.css
+│   │   │   └── 404.jsx
+│   │   └── Profile/
+│   │       ├── components/
+│   │       │   └── UserInfoCard/
+│   │       │       ├── UserInfoCard.css
+│   │       │       └── UserInfoCard.jsx
+│   │       ├── Profile.css
+│   │       └── Profile.jsx
+│   ├── serveses/                        ← مخصص لدوال التعامل مع الـ API وطلبات السيرفر بعيد عن ملفات العرض (JSX).
+│   ├── shared/                          ← فيه المكونات المشتركة اللي بتتكرر في أكتر من صفحة زي الهيدر والفوتر.
+│   │   ├── Footer/
+│   │   │   ├── Footer.css
+│   │   │   └── Footer.jsx
+│   │   └── Header/
+│   │       ├── Header.css
+│   │       └── Header.jsx
+│   ├── main.css                         ← ملف التنسيقات العامة على مستوى التطبيق كله.
+│   └── main.jsx                         ← نقطة البداية اللي بتجمع كل حاجة في React وتحقنها في عنصر `root` جوه `index.html`.
+├── index.html                           ← صفحة الـ HTML الوحيدة اللي بتستقبل التطبيق النهائي جوه `<div id="root"></div>`.
+├── .gitignore
+├── eslint.config.js
+├── package-lock.json
+├── package.json
+├── README.md
+├── structur.txt
+└── vite.config.js

@@ -1,0 +1,18 @@
+.empty-state {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-state-title {
+  margin: 12px 0 6px;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.empty-state-desc {
+  margin: 0 0 20px;
+  color: var(--text-secondary);
+}
